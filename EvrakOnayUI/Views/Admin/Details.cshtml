@@ -1,0 +1,90 @@
+﻿@model DatabaseAccsessLayer.Entities.Request
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+@using (Html.BeginForm("Respond","Admin",FormMethod.Get))
+{
+<div>
+    <h4>Request</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Header)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Header)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Result)
+        </dt>
+        @if (Model.RequestState == DatabaseAccsessLayer.Entities.RequestState.Created)
+        {
+            <dd>
+                <input type="text" name="result" id="result" class="form-control" />
+            </dd>
+            <input type="hidden" name="id" value="@Model.Id" />
+            <button type="submit" name="submitButton" value="Confirm" class="btn btn-success">Onayla</button>
+            <button type="submit" name="submitButton" value="Deny" class="btn btn-danger">Reddet</button>
+        }
+        else
+        {
+    <dd>
+        @Html.DisplayFor(model => model.Result)
+    </dd>
+        }
+    </dl>
+    
+    @Html.ActionLink("Anasayfa","Index","Admin",new { @class="btn btn-primary"})
+</div>
+   
+        
+
+   
+}

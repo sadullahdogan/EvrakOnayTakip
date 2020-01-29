@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <input type="email" name="email" id="email" placeholder="E-Mail Adresi" />
+        <input type="password" name="password" id="password" placeholder="Şifre" />
+        <button type="submit">Giriş</button>
+
+
+    }
+</div>
